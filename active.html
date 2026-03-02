@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+             body { font-family: Arial; }
+            #menu { display: flex; 
+                list-style: none; 
+                gap: 20px;
+                padding: 0; }
+
+    #menu a {
+      text-decoration: none;
+      padding: 8px 16px;
+      color: black;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    #menu a.active {
+      background-color: red;
+      color: white;
+    }
+    #menu a:hover {
+      background-color: rgb(211, 211, 211);
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <ul id="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#servive">Service</a></li>
+            <li><a href="#bio">Bio</a></li>
+            <li><a href="#profile-info">Profile-info</a></li>
+        </ul>
+    </nav>
+    
+    <script>
+        const menu=document.getElementById("menu");
+        const links=menu.querySelectorAll("a");
+        menu.addEventListener("click", function(event) {
+        event.preventDefault();
+
+    if (event.target.tagName === "A") {
+  
+      links.forEach(link => link.classList.remove("active"));
+    
+      event.target.classList.add("active");
+    }
+  });
+
+   
+    </script>
+</body>
+</html>

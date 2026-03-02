@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FAQ Accordion</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.faq-container {
+  width: 500px;
+  margin: 40px auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.faq-question {
+  cursor: pointer;
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f4f4f4;
+}
+
+.faq-answer {
+  display: none;
+  padding: 15px;
+  background: #fafafa;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.indicator {
+  font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="faq-container">
+
+  <div class="faq-item">
+    <div class="faq-question">
+      What is HTML?
+      <span class="indicator">+</span>
+    </div>
+    <div class="faq-answer">
+      HTML is used to structure web pages.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      What is CSS?
+      <span class="indicator">+</span>
+    </div>
+    <div class="faq-answer">
+      CSS styles web pages.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      What is JavaScript?
+      <span class="indicator">+</span>
+    </div>
+    <div class="faq-answer">
+      JavaScript adds interactivity.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      What is DOM?
+      <span class="indicator">+</span>
+    </div>
+    <div class="faq-answer">
+      DOM represents the structure of a webpage.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      What is an event?
+      <span class="indicator">+</span>
+    </div>
+    <div class="faq-answer">
+      An event is a user or browser action.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      What is a function?
+      <span class="indicator">+</span>
+    </div>
+    <div class="faq-answer">
+      A function is reusable block of code.
+    </div>
+  </div>
+
+    <div class="faq-item">
+    <div class="faq-question">
+      What is react?
+      <span class="indicator">+</span>
+    </div>
+    <div class="faq-answer">
+     React is advanced technology which is used to build single page application!.
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">
+        what is component in react?
+        <span class="indicator">+</span>
+    </div>
+    <div class="faq-answer">
+        Components are the small ui block which is used to bulid the intercative web page.
+    </div>
+
+</div>
+</div>
+<script>
+    const questions=document.querySelectorAll(".faq-question");
+    questions.forEach(question=>{
+        question.addEventListener("click",()=>{
+        const currentItem=question.parentElement;
+            document.querySelectorAll("faq-item").forEach(item=>{
+                if(item!==currentItem){
+                    item.classList.remove("active");
+                    item.querySelector(".indicator").textContent="+";
+                }
+            });
+            currentItem.classList.toggle("active");
+            const indicator=question.querySelector(".indicator");
+            indicator.textContent=currentItem.classList.contains("active") ? "-" : "+";
+
+        
+
+        })
+    })
+</script>
+</body>
+</html>
