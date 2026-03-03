@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 10px;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+        body{
+            background-color: wheat;
+            color: black;
+           
+            text-align: center;
+        }
+        #addBtn{
+            background-color: blue;
+            color: white;
+        }
+        #addBtn:hover{
+            transform: scale(1.2);
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+   <h2>Todo-List</h2>
+   <input type="text"  id="name" placeholder="enter name">
+   <button id="addBtn">submit</button>
+
+   <ul id="todolist"></ul>
+
+   <script>
+    const input=document.getElementById("name")
+    const button=document.getElementById("addBtn");
+    const list=document.getElementById("todolist");
+
+    button.addEventListener("click",function(){
+        let taskText=input.value.trim();
+
+        if(taskText==="") return;
+
+      const li = document.createElement("li");
+        li.innerHTML=`<span class="task-text">${taskText}</span> 
+           <button class="delete-btn">Delete</button>`;
+        list.prepend(li);
+        input.value="";
+    });
+
+        list.addEventListener("click",function(e){
+            if(e.target.classList.contains("delete-btn")){
+                e.target.parentElement.remove();
+
+            }else if(e.target.classList.contains("task-text")){
+                e.target.classList.toggle("completed");
+            }
+        });
+       
+    
+   </script>
+</body>
+</html>
